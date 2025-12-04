@@ -29,6 +29,9 @@ app.get("/any", (req, res) => {
   res.send("Hello how are you")
 }); 
 
+app.get("/country", (req, res) => {
+  res.send("Pakistan ❤️")
+}); 
 
 app.get("/login", (req, res) => {
   res.render("login", { title: "Login" });
