@@ -23,7 +23,7 @@ const PORT = process.env.PORT || 3000;
 
 app.get("/", (req, res) => {
   res.render("index", { title: "Home" });
-}); // Home route
+}); 
 
 app.get("/login", (req, res) => {
   res.render("login", { title: "Login" });
