@@ -25,6 +25,10 @@ app.get("/", (req, res) => {
   res.render("index", { title: "Home" });
 }); 
 
+app.get("/any", (req, res) => {
+  res.send("Hello how are you")
+}); 
+
 app.get("/login", (req, res) => {
   res.render("login", { title: "Login" });
 });
