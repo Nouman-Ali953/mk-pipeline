@@ -33,8 +33,13 @@ app.get("/country", (req, res) => {
   res.send("Pakistan ❤️")
 }); 
 
+
 app.get("/login", (req, res) => {
   res.render("login", { title: "Login" });
+});
+
+app.get("/cricket", (req, res) => {
+  res.render("cricket");
 });
 
 app.get("/signup", (req, res) => {

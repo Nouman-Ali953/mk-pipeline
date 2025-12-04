@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pakistan Cricket ❤️</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: "Poppins", sans-serif;
+            background: url('https://images.pexels.com/photos/165734/pexels-photo-165734.jpeg') no-repeat center center/cover;
+            color: #fff;
+        }
+
+        .overlay {
+            background: rgba(0, 0, 0, 0.6);
+            height: 100vh;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            padding-top: 8%;
+        }
+
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 8px #000;
+            animation: fadeInDown 1s ease;
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 300;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 5px #000;
+            animation: fadeInUp 1.5s ease;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.15);
+            display: inline-block;
+            padding: 25px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+            width: 350px;
+            animation: zoomIn 1.2s ease;
+        }
+
+        .card img {
+            width: 100%;
+            border-radius: 15px;
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            margin-top: 20px;
+            display: inline-block;
+            padding: 10px 20px;
+            background: #1fa64b;
+            border-radius: 30px;
+            color: white;
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transition: 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #17833a;
+            transform: scale(1.05);
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.7); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay">
+        <div class="container">
+            <h1>Pakistan Cricket ❤️</h1>
+            <h2>United, Fearless & Passionate</h2>
+
+            <div class="card">
+
+                <p style="font-size: 1.1rem; line-height: 1.4;">
+                    Celebrating the spirit of cricket, passion of our fans, and the unstoppable energy of the Pakistan team.
+                </p>
+
+                <a href="/" class="btn">Back to Home</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
