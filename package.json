@@ -1,0 +1,19 @@
+{
+  "name": "dockerized-node-app",
+  "version": "1.0.0",
+  "description": "This project is a Dockerized Node.js application designed for easy deployment and scalability.",
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node --watch app/src/index.js",
+    "start": "node app/src/index.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0"
+  }
+}
