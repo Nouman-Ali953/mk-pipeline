@@ -31,6 +31,10 @@ app.get("/any", (req, res) => {
 
 app.get("/country", (req, res) => {
   res.send("Pakistan ❤️")
+});
+
+app.get("/cricker", (req, res) => {
+  res.send("Babar Azam ❤️")
 }); 
 
 app.get("/login", (req, res) => {
