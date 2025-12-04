@@ -62,6 +62,11 @@ app.post("/signup", (req, res) => {
   res.redirect("/login");
 });
 
+// 404 - Page Not Found
+app.use((req, res) => {
+  res.status(404).render("404", { title: "Page Not Found" });
+});
+
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 })
