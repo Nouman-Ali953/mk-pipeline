@@ -125,6 +125,8 @@
 </head>
 <body>
 
+<%- include("partials/header", { title: "Welcome to NodeAuth" }) %>
+
 <header>
     <h1>About My Deployment Flow</h1>
     <p>CI/CD pipeline using GitHub Actions, Docker, ECR, ECS Fargate & Load Balancer</p>
@@ -227,9 +229,6 @@ jobs:
     </div>
 </section>
 
-<footer>
-    © <%= new Date().getFullYear() %> Deployment System — Powered by AWS & GitHub Actions
-</footer>
-
+<%- include("partials/footer") %>
 </body>
 </html>
