@@ -5,7 +5,7 @@ import bodyParser from 'body-parser';
 import cookieParser from "cookie-parser"; 
 import session from "express-session";
 import { fileURLToPath } from "url";
-import '../config/db.js'
+// import '../config/db.js'
 import router from '../routes/authRoute.js';
 import { isAuthenticated } from "../middlewares/authMiddleware.js";
 
