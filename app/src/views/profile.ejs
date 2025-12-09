@@ -1,0 +1,18 @@
+<%- include("partials/header", { title: "Your Profile" }) %>
+
+<section class="page-section profile-page">
+  <div class="page-container">
+
+    <div class="profile-card">
+      <img src="/bg_profile.jpg" class="profile-bg" />
+
+      <div class="profile-content">
+        <h2><%= user.name %></h2>
+        <p><%= user.email %></p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<%- include("partials/footer") %>
