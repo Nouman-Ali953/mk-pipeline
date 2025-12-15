@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %> | Deployment Flow</title>
+
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+            margin: 0;
+            background: #f1f5f9; /* Light slate */
+            color: #0f172a; /* Dark slate */
+        }
+
+        /* HEADER */
+        header {
+            background: linear-gradient(to right, #1e40af, #2563eb);
+            color: white;
+            text-align: center;
+            padding: 70px 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        header p {
+            margin-top: 12px;
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+
+        /* SECTION */
+        .section {
+            padding: 50px 20px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .section h2 {
+            font-size: 2.2rem;
+            color: #1e3a8a;
+            margin-bottom: 15px;
+        }
+
+        .section p {
+            line-height: 1.7;
+            font-size: 1.1rem;
+            color: #1e293b;
+        }
+
+        /* FLOW CARDS */
+        .flow-container {
+            margin-top: 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .flow-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+            transition: 0.3s ease;
+            text-align: center;
+            border-top: 5px solid #2563eb;
+        }
+
+        .flow-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 28px rgba(0,0,0,0.12);
+        }
+
+        .flow-card img {
+            width: 65px;
+            margin-bottom: 15px;
+        }
+
+        /* CODE BLOCK */
+        .code-block {
+            background: #0f172a;
+            color: #38bdf8;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 25px;
+            overflow-x: auto;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+
+        .code-block code {
+            color: #a5f3fc;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #1e3a8a;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            font-size: 0.9rem;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 2.3rem;
+            }
+            .section h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<%- include("partials/header", { title: "Welcome to NodeAuth" }) %>
+
+<header>
+    <h1>About My Deployment Flow</h1>
+    <p>CI/CD pipeline using GitHub Actions, Docker, ECR, ECS Fargate & Load Balancer</p>
+</header>
+
+<section class="section">
+    <h2>Overview</h2>
+    <p>
+        This project uses a fully automated CI/CD deployment pipeline.  
+        Every push to <strong>main</strong> builds a Docker image, pushes it to ECR, updates ECS task definitions,  
+        and redeploys the service behind an Application Load Balancer.
+    </p>
+</section>
+
+<section class="section">
+    <h2>Deployment Flow</h2>
+
+    <div class="flow-container">
+        
+        <div class="flow-card">
+            <img src="https://i.ibb.co/Kz0Sgbt/github.png" alt="GitHub">
+            <h3>1. GitHub Actions</h3>
+            <p>Push triggers workflow → builds Docker image → deploys to AWS.</p>
+        </div>
+
+        <div class="flow-card">
+            <img src="https://i.ibb.co/1KFfF29/docker.png" alt="Docker">
+            <h3>2. Docker Image Build</h3>
+            <p>GitHub builds the Docker image using your Dockerfile.</p>
+        </div>
+
+        <div class="flow-card">
+            <img src="https://i.ibb.co/KsNYnVz/aws-ecr.png" alt="ECR">
+            <h3>3. Amazon ECR</h3>
+            <p>The Docker image is pushed to Amazon Elastic Container Registry.</p>
+        </div>
+
+        <div class="flow-card">
+            <img src="https://i.ibb.co/2kKXzWM/task.png" alt="Task">
+            <h3>4. ECS Task Definition</h3>
+            <p>Task definition updates automatically with the new image.</p>
+        </div>
+
+        <div class="flow-card">
+            <img src="https://i.ibb.co/KwKyBj8/ecs.png" alt="ECS">
+            <h3>5. ECS Fargate</h3>
+            <p>Fargate deploys the updated container serverlessly.</p>
+        </div>
+
+        <div class="flow-card">
+            <img src="https://i.ibb.co/4JQZcZW/lb.png" alt="Load Balancer">
+            <h3>6. Load Balancer</h3>
+            <p>ALB routes traffic and keeps the app always available.</p>
+        </div>
+
+    </div>
+</section>
+
+<section class="section">
+    <h2>GitHub Actions Workflow</h2>
+
+    <div class="code-block">
+<pre>
+<code>
+<%= `name: Deploy to Amazon ECS
+
+on:
+  push:
+    branches: [ "main" ]
+
+env:
+  AWS_REGION: ap-south-1
+  ECR_REPOSITORY: node/mk-pipeline
+  ECS_SERVICE: mk-task-definition-service-8pqtz7f5
+  ECS_CLUSTER: mk-cluster
+  ECS_TASK_DEFINITION: .aws/task-definition.json
+  CONTAINER_NAME: mk-container
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: \${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: \${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: \${{ env.AWS_REGION }}
+
+      - uses: aws-actions/amazon-ecr-login@v1
+
+      - name: Build Docker Image
+        run: |
+          docker build -t ... (trimmed)
+` %>
+</code>
+</pre>
+    </div>
+</section>
+
+<%- include("partials/footer") %>
+</body>
+</html>

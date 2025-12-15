@@ -1,0 +1,83 @@
+<!-- 
+<%- include("partials/header", { title: "Dashboard" }) %>
+
+<section class="dashboard">
+  <div class="dash-container">
+    <h1>Hello, <%= user ? user.name : "User" %> 👋</h1>
+    <p class="subtitle">
+      Welcome back! Here's your personalized dashboard.
+    </p>
+
+    <div class="cards">
+
+      <div class="card">
+        <h3>Profile</h3>
+        <p>View and update your personal information.</p>
+        <a href="#" class="card-btn">Open</a>
+      </div>
+
+      <div class="card">
+        <h3>Settings</h3>
+        <p>Manage account, security, preferences and more.</p>
+        <a href="#" class="card-btn">Manage</a>
+      </div>
+
+      <div class="card">
+        <h3>Explore</h3>
+        <p>Access additional features and tools.</p>
+        <a href="#" class="card-btn">Explore</a>
+      </div>
+
+    </div>
+
+    <div class="logout">
+      <a href="/logout" class="logout-btn">Logout</a>
+    </div>
+  </div>
+</section>
+
+<%- include("partials/footer") %> -->
+
+
+<%- include("partials/header", { title: "Dashboard" }) %>
+
+<section class="dashboard">
+  <div class="dash-container">
+    
+    <h1 class="dash-title">
+      Hello, <span><%= user ? user.name : "User" %></span> 👋
+    </h1>
+
+    <p class="subtitle">
+      Welcome back! Here's your personal dashboard.
+    </p>
+
+    <div class="cards">
+
+      <div class="card new-card">
+        <div class="card-icon">👤</div>
+        <h3>Profile</h3>
+        <p>View and update your personal information.</p>
+        <a href="/profile" class="card-btn">Open</a>
+      </div>
+
+      <div class="card new-card">
+        <div class="card-icon">⚙️</div>
+        <h3>Settings</h3>
+        <p>Manage security, privacy, and account preferences.</p>
+        <a href="/settings" class="card-btn">Manage</a>
+      </div>
+
+      <div class="card new-card">
+        <div class="card-icon">🚀</div>
+        <h3>Explore</h3>
+        <p>Discover tools, updates and upcoming features.</p>
+        <a href="/explore" class="card-btn">Explore</a>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<%- include("partials/footer") %>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title><%= title %></title>
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="container">
+        <h2 class="logo"><a href="/"><span>Node</span>Auth</a></h2>
+
+        <ul class="nav-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/cricket">Cricket</a></li>
+
+          <% if (!user) { %>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/signup">Sign Up</a></li>
+          <% } else { %>
+            <li class="nav-welcome">Welcome, <strong><%= user.name %></strong></li>
+            <li><a href="/logout" class="logout-link" style="color: red; font-weight:bold; font-style: italic">Logout</a></li>
+          <% } %>
+        </ul>
+      </div>
+    </nav>
+
+    <main class="main-container">

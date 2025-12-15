@@ -1,0 +1,39 @@
+# Node modules and debug logs
+node_modules
+npm-debug.log
+yarn-error.log
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Build and coverage output
+dist
+build
+coverage
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Git and Docker files
+.git
+.gitignore
+.dockerignore
+
+# Editor configs and caches
+.vscode
+.idea
+*.swp
+*.swo
+
+# OS / temp files
+*.tmp
+*.log
+*.bak
+
+# Test files (optional)
+__tests__
+test
+tests

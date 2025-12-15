@@ -1,0 +1,30 @@
+<%- include("partials/header", { title: "Sign Up" }) %>
+
+<section class="auth-card" style="margin-top: 4rem; margin-bottom: 4rem;">
+  <h2>Create Account</h2>
+
+  <% if (typeof error !== "undefined") { %>
+    <div style="color: red; margin-bottom: 1rem;"><%= error %></div>
+  <% } %>
+
+  <form method="POST" action="/signup" class="auth-form">
+    <input type="text" name="name" placeholder="Full Name"
+      value="<%= typeof oldName !== 'undefined' ? oldName : '' %>"
+      required />
+
+    <input type="email" name="email" placeholder="Email address"
+      value="<%= typeof oldEmail !== 'undefined' ? oldEmail : '' %>"
+      required />
+
+    <input type="password" name="password" placeholder="Password" required />
+
+    <button type="submit" class="btn">Sign Up</button>
+
+    <p class="text-small">
+      Already have an account?
+      <a href="/login">Login</a>
+    </p>
+  </form>
+</section>
+
+<%- include("partials/footer") %>
