@@ -2,7 +2,9 @@ version: "3.9"
 
 services:
   app:
-    image: pipeline:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: node_app
     ports:
       - "3000:3000"
@@ -10,6 +12,9 @@ services:
       - .env
     depends_on:
       - db
+    volumes:
+      - .:/app
+    command: npm run dev
 
   db:
     image: postgres:15
