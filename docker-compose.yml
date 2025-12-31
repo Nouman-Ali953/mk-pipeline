@@ -2,9 +2,7 @@ version: "3.9"
 
 services:
   app:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: pipeline:latest
     container_name: node_app
     ports:
       - "3000:3000"
@@ -12,9 +10,6 @@ services:
       - .env
     depends_on:
       - db
-    volumes:
-      - .:/app
-    command: npm run dev
 
   db:
     image: postgres:15
@@ -25,7 +20,7 @@ services:
       POSTGRES_PASSWORD: ${DB_PASSWORD}
       POSTGRES_DB: ${DB_NAME}
     ports:
-      - "5433:5432"   # Expose on host port 5433
+      - "5433:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
 
